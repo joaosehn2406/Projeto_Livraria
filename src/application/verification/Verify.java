@@ -23,7 +23,6 @@ public class Verify {
     private List<Worker> workers = new ArrayList<>();
 
     public void managerDisplay() {
-        System.out.println("Welcome Manager!");
         System.out.println("Choose an option: ");
         System.out.println("1. Close application");
         System.out.println("2. Contract worker");
@@ -41,13 +40,12 @@ public class Verify {
     public void verification(int answer, Scanner in) {
         int options;
         do {
-
-
             if (answer == 1) {
+                System.out.println("Welcome Manager!");
                 managerDisplay();
                 System.out.println("Enter the correspondent number to the action: ");
                 options = in.nextInt();
-                in.nextLine(); // Consume the newline character
+
 
                 switch (options) {
                     case 1:
@@ -106,24 +104,24 @@ public class Verify {
         }
         System.out.print("ID: ");
         int id = in.nextInt();
-        in.nextLine(); // Consume the newline character
+        in.nextLine();
         System.out.print("Value per hour: ");
         double valuePerHour = in.nextDouble();
         System.out.print("Work hours: ");
         int workHours = in.nextInt();
-        in.nextLine(); // Consume the newline character
+        in.nextLine();
         System.out.print("Role: ");
         String role = in.nextLine().toLowerCase();
         if (role.equals("salehelper")) {
             System.out.print("Sales quantity: ");
             int salesQuantity = in.nextInt();
-            in.nextLine(); // Consume the newline character
+            in.nextLine();
             SaleHelper sl = new SaleHelper(valuePerHour, workHours, name, cpf, birthDate, id, salesQuantity);
             workers.add(sl);
         } else {
             System.out.print("Sales quantity for bonus calculation: ");
             int salesQuantity = in.nextInt();
-            in.nextLine(); // Consume the newline character
+            in.nextLine();
             double bonus = salesQuantity > 100 ? 1000.0 : 500.0;
             Manager mn = new Manager(valuePerHour, workHours, name, cpf, birthDate, id, bonus);
             workers.add(mn);
